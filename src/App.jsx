@@ -36,12 +36,13 @@ function App() {
       <header className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 relative w-full">
         <div className="text-center px-4">
           <motion.img
-            src="/profile.jpg"
+            src="/profile.jpg" // Should resolve to /portfolio/profile.jpg
             alt="Jasmandeep Singh"
             className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
+            onError={(e) => console.log("Image load error:", e)} // Debug
           />
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2"
@@ -94,11 +95,12 @@ function App() {
               <FaEnvelope size={28} />
             </motion.a>
             <motion.a
-              href="/resume_JASMAN_DEEP.pdf"
-              download
+              href="/resume_JASMAN_DEEP.pdf" // Should resolve to /portfolio/resume_JASMAN_DEEP.pdf
+              download="resume_JASMAN_DEEP.pdf"
               className="text-white hover:text-gray-200"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
+              onClick={(e) => console.log("Download attempted:", e)} // Debug
             >
               <FaFileDownload size={28} />
             </motion.a>
@@ -414,11 +416,12 @@ function App() {
                 <FaLinkedin size={20} sm:size={24} className="mr-2" /> LinkedIn
               </motion.a>
               <motion.a
-                href="/resume_JASMAN_DEEP.pdf"
-                download
+                href="/resume_JASMAN_DEEP.pdf" // Should resolve to /portfolio/resume_JASMAN_DEEP.pdf
+                download="resume_JASMAN_DEEP.pdf"
                 className="text-blue-600 hover:text-blue-800 flex items-center justify-center text-sm sm:text-base"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={(e) => console.log("Download attempted:", e)} // Debug
               >
                 <FaFileDownload size={20} sm:size={24} className="mr-2" />{" "}
                 Download Resume
